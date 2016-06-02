@@ -12,6 +12,7 @@ import com.z.test.pojo.User;
 import com.z.test.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,15 +24,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
     static private Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @Resource
+    @Autowired
     private IUserService userService;
 
     @RequestMapping("/showUser")
     @ResponseBody
-    public User toIndex(HttpServletRequest request, Model model) {
-        int userId = Integer.parseInt(request.getParameter("id"));
-        User user = this.userService.getUserById(userId);
-        model.addAttribute("user", user);
+    public User toIndex(String id) {
+        User user = new User();
+        user = this.userService.getUserById(Integer.parseInt(id));
         logger.error("[info message]");
         return user;
     }

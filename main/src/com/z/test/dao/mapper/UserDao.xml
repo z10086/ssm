@@ -10,5 +10,12 @@
     <select id="getUserById" resultMap="userResultMap">
         select * from tbl_users WHERE id = '1';
     </select>
+    <select id="getTopUser" resultMap="userResultMap">
+        SELECT * FROM tbl_users  ORDER BY id DESC LIMIT 1 ,1;
+    </select>
+
+    <insert id="insertUser" parameterType="com.z.test.pojo.User">
+        INSERT INTO tbl_users (`username`,`password`)VALUES(22,33)
+    </insert>
 
 </mapper>

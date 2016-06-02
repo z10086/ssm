@@ -1,4 +1,3 @@
-package test;
 import com.z.test.pojo.User;
 import com.z.test.service.IUserService;
 import com.z.test.service.impl.UserServiceImpl;

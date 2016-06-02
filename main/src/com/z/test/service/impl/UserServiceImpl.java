@@ -1,11 +1,6 @@
 package com.z.test.service.impl;
 
 import com.z.test.service.IUserService;
-
-
-
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +14,16 @@ public class UserServiceImpl implements IUserService {
     private IUserDao userDao;
     @Override
     public User getUserById(int userId) {
-        // TODO Auto-generated method stub
         return this.userDao.getUserById(userId);
+    }
+
+    @Override
+    public User getTopUser() {
+        return this.userDao.getTopUser();
+    }
+
+    public void insertUser(User user){
+        userDao.insertUser(user);
     }
 
 }
